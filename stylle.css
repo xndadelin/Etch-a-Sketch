@@ -1,14 +1,18 @@
 .grid{
-    height: 601px;
-    width: 601px;
+    height: 600px;
+    width: 600px;
     border: 1px solid black;
-    padding: 0%;
+    gap: 0%;
+    flex: 0 0 auto;
+    margin: 0;
+    font-size: 0;
 }
 .main{
     margin-top: 200px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    
 }
 .value{
     display: flex;

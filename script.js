@@ -8,11 +8,17 @@ value.addEventListener('click', () => {
   }
     val = parseInt(prompt('ok'));
     let gridValue = 600/val - 2;
-    console.log(val);
-    console.log(gridValue);
 for(let i = 1; i <=val*val; ++i){
     const div = document.createElement('div');
-    div.style.cssText = `display: inline-block; flex-direction: row;border: 0.1px solid black; padding: 0px; margin: 0px; margin-bottom: -3px; margin-top: -1px; height: ${gridValue}px; width: ${gridValue}px;`;
+    div.className = `square`;
+    div.style.cssText = `display: inline-block; draggable="false"; flex-direction: row;border: 0.1px solid black; padding: 0%; margin: 0%; height: ${gridValue}px; width: ${gridValue}px;`;
     grid.appendChild(div);
+    div.addEventListener('mouseenter', () => {
+      div.style.backgroundColor = 'red';
+    });
+    div.addEventListener('mouseleave', () => {
+      div.style.backgroundColor = 'red';
+    });
 }
 });
+const divs = document.querySelectorAll('.square');
