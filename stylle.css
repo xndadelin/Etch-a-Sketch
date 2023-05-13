@@ -1,0 +1,22 @@
+.grid{
+    height: 601px;
+    width: 601px;
+    border: 1px solid black;
+    padding: 0%;
+}
+.main{
+    margin-top: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.value{
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 40px;
+}
+.btn{
+    height: 50px;
+    width: 150px;
+    border-radius: 10px;
+}
