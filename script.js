@@ -21,7 +21,6 @@ Value.textContent = `${val}x${val}`;
       resetButton.style.transform = 'scale(1)';
     }, 100);
   });
-
 function createGrid (val, gridValue) {
   for(let i = 1; i <=val*val; ++i){
     const div = document.createElement('div');
@@ -87,5 +86,7 @@ value.addEventListener('mousemove', () => {
       }
     });
     });
+    divs1.forEach((div) => {
+      div.setAttribute('draggable', 'false');
+    });
 });
-
