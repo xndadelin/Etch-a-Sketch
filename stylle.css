@@ -1,3 +1,15 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 960px;
+    background-color: rgb(255, 204, 0);
+}
+.title{
+    font-family: monospace;
+    font-size: 60px;
+    margin-bottom: 20px;
+}
 .grid{
     height: 600px;
     width: 600px;
@@ -8,19 +20,33 @@
     font-size: 0;
 }
 .main{
-    margin-top: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.resetbtn{
+    height: 30px;
+    width: 100px;
+    border-radius: 20px;
+}
+.buttons{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    
+    justify-content: space-between !important;
+    width: 600px;
+    margin-top: 50px;
+    align-items: center;
 }
-.value{
+.valuefetch{
     display: flex;
-    align-items: flex-end;
-    margin-bottom: 40px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-.btn{
-    height: 50px;
-    width: 150px;
-    border-radius: 10px;
+.colors{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
 }
