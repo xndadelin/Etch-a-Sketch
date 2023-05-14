@@ -53,6 +53,9 @@ const divs1 = document.querySelectorAll('.grid div');
     div.style.backgroundColor = `${selectedColor}`;
   }
 });
+  divs1.forEach((div) => {
+    div.setAttribute('draggable', 'false');
+    });
 });
 value.addEventListener('mousemove', () => {
   val = value.value;
