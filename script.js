@@ -10,7 +10,7 @@ Value.textContent = `${val}x${val}`;
   Color.addEventListener('input', () => {
      selectedColor = Color.value;
   });
-
+  
   resetButton.addEventListener('click', () => {
     const divs1 = document.querySelectorAll('.grid div');
     divs1.forEach((div) => {
@@ -28,17 +28,33 @@ function createGrid (val, gridValue) {
     div.className = `square`;
     div.style.cssText = `display: inline-block; draggable="false"; flex-direction: row;border: 0.1px solid black; padding: 0%; margin: 0%; height: ${gridValue}px; width: ${gridValue}px;`;
     grid.appendChild(div);
-    div.addEventListener('mousemove', function(event) {
-      if (isMouseDown && event.buttons === 1) { //
-        const div = event.target;
-        div.style.backgroundColor = `${selectedColor}`;
-      }
-    });
 }
 }
 
 createGrid(16, 35.5);
-
+const divs1 = document.querySelectorAll('.grid div');
+  divs1.forEach((div) => {
+    div.style.backgroundColor = '#FFFFFF';
+  });
+  let isMouseDown = false;
+  divs1.forEach((div) => {
+    div.addEventListener("mousedown", function() {
+      isMouseDown = true;
+    });
+  });
+  divs1.forEach((div) => {
+    div.addEventListener("mouseup", function() {
+      isMouseDown = false;
+    });
+  });
+  divs1.forEach((div) => {
+      div.addEventListener('mousemove', function(event) {
+  if (isMouseDown && event.buttons === 1) { //
+    const div = event.target;
+    div.style.backgroundColor = `${selectedColor}`;
+  }
+});
+});
 value.addEventListener('mousemove', () => {
   val = value.value;
   Value.textContent = `${val}x${val}`;
@@ -49,12 +65,6 @@ value.addEventListener('mousemove', () => {
     let gridValue = 600/val - 2;
     createGrid(val, gridValue);
     const divs1 = document.querySelectorAll('.grid div');
-    divs1.forEach((div) => {
-      div.style.backgroundColor = '#FFFFFF';
-    });
-});
-
-const divs1 = document.querySelectorAll('.grid div');
     divs1.forEach((div) => {
       div.style.backgroundColor = '#FFFFFF';
     });
@@ -69,3 +79,13 @@ const divs1 = document.querySelectorAll('.grid div');
         isMouseDown = false;
       });
     });
+    divs1.forEach((div) => {
+          div.addEventListener('mousemove', function(event) {
+      if (isMouseDown && event.buttons === 1) { //
+        const div = event.target;
+        div.style.backgroundColor = `${selectedColor}`;
+      }
+    });
+    });
+});
+
