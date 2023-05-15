@@ -3,6 +3,7 @@ const grid = document.querySelector('.grid');
 const value = document.querySelector('.btn');
 const Value = document.querySelector('.gridvalue');
 const Color = document.querySelector('#color');
+const rainbow = document.querySelector('.rainbow');
 
 let val = 16;
 let selectedColor = '#000000';
@@ -21,6 +22,7 @@ Value.textContent = `${val}x${val}`;
       resetButton.style.transform = 'scale(1)';
     }, 100);
   });
+
 function createGrid (val, gridValue) {
   for(let i = 1; i <=val*val; ++i){
     const div = document.createElement('div');
@@ -57,6 +59,7 @@ const divs1 = document.querySelectorAll('.grid div');
     div.setAttribute('draggable', 'false');
     });
 });
+
 value.addEventListener('mousemove', () => {
   val = value.value;
   Value.textContent = `${val}x${val}`;
@@ -92,4 +95,39 @@ value.addEventListener('mousemove', () => {
     divs1.forEach((div) => {
       div.setAttribute('draggable', 'false');
     });
+
+});
+
+function getRandomColor() {
+  const letters = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+rainbow.addEventListener('click', () => {
+  let isMouseDown = false;
+  divs1.forEach((div) => {
+    div.addEventListener("mousedown", function() {
+      isMouseDown = true;
+    });
+  });
+  divs1.forEach((div) => {
+    div.addEventListener("mouseup", function() {
+      isMouseDown = false;
+    });
+  });
+  divs1.forEach((div) => {
+        div.addEventListener('mousemove', function(event) {
+    if (isMouseDown && event.buttons === 1) { //
+      const div = event.target;
+      div.style.backgroundColor = getRandomColor();
+    }
+  });
+  });
+  divs1.forEach((div) => {
+    div.setAttribute('draggable', 'false');
+  });
 });
